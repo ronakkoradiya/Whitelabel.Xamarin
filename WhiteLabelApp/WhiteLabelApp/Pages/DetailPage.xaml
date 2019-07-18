@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:svg="clr-namespace:SkiaRate;assembly=SkiaRate.Forms"
+             xmlns:helper="clr-namespace:WhiteLabelApp.Helpers"
+             x:Class="WhiteLabelApp.Pages.DetailPage">
+    
+    <ContentPage.Content>
+        
+        <StackLayout HorizontalOptions="FillAndExpand"
+                     VerticalOptions="FillAndExpand"
+                     Orientation="Vertical"
+                     Padding="20"
+                     IsEnabled="False">
+
+            <svg:RatingView x:Name="SvgImage"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand"
+                            Count="1"
+                            ColorOn="{StaticResource theme_primary}"
+                            OutlineOnColor="{StaticResource theme_primary}"
+                            OutlineOffColor="{StaticResource theme_primary}"
+                            EnableTouchEvents="False"
+                            InputTransparent="False"
+                            StrokeWidth="1" />
+
+                            <!--OutlineOffColor="{StaticResource theme_primary}"-->
+                            <!--OutlineOnColor="{StaticResource theme_primary}"
+                            OutlineOffColor="{StaticResource theme_primary}"-->
+
+            <!--<svg:RatingView HorizontalOptions="Start" 
+                                 VerticalOptions="CenterAndExpand" 
+                                 Count="1" 
+                                 Value="1" 
+                                 ColorOn="{StaticResource theme_primary}" 
+                                 EnableTouchEvents="False" 
+                                 InputTransparent="False" 
+                                 IsEnabled="False" 
+                                 StrokeWidth="1" 
+                                 Path="{x:Static helper:SvgPaths.ic_cal}">
+
+                <svg:RatingView.HeightRequest>
+                    <OnIdiom x:TypeArguments="x:Double">
+                        <OnIdiom.Phone>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">13</On>
+                                <On Platform="Android">16</On>
+                            </OnPlatform>
+                        </OnIdiom.Phone>
+                        <OnIdiom.Tablet>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">16</On>
+                                <On Platform="Android">18</On>
+                            </OnPlatform>
+                        </OnIdiom.Tablet>
+                    </OnIdiom>
+                </svg:RatingView.HeightRequest>
+                <svg:RatingView.WidthRequest>
+                    <OnIdiom x:TypeArguments="x:Double">
+                        <OnIdiom.Phone>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">13</On>
+                                <On Platform="Android">16</On>
+                            </OnPlatform>
+                        </OnIdiom.Phone>
+                        <OnIdiom.Tablet>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">16</On>
+                                <On Platform="Android">18</On>
+                            </OnPlatform>
+                        </OnIdiom.Tablet>
+                    </OnIdiom>
+                </svg:RatingView.WidthRequest>
+            </svg:RatingView>-->
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

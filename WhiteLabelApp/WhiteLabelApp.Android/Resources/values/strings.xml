@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  
+  <string name="app_name">WhiteLabelDemo</string>
+  <string name="package_name"></string>
+  
+  <!--<color name="colorPrimary">#f1d70f</color>
+  <color name="colorPrimaryDark">#e5cd16</color>-->
+  <color name="colorPrimary">#D98C8C</color>
+  <color name="colorPrimaryDark">#D98C8C</color>
+  <color name="colorAccent">#000000</color>
+   
+</resources>

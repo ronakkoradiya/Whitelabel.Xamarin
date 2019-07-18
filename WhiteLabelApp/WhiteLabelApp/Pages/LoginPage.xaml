@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WhiteLabelApp.Pages.LoginPage"
+             BackgroundColor="{StaticResource theme_primary}"
+             xmlns:cc="clr-namespace:WhiteLabelApp.CustomControl"
+             xmlns:behaviors="clr-namespace:WhiteLabelApp.Behaviors">
+    <ContentPage.Content>
+        <StackLayout Margin="20,0">
+
+            <StackLayout Margin="0, 50">
+            <!--Logo Image-->
+            <Image Source="app_icon.png" HorizontalOptions="CenterAndExpand">
+                <Image.Behaviors>
+                <behaviors:ViewTappedButtonBehavior AnimationType="Rotate"/>
+                </Image.Behaviors>
+            </Image>
+            <Label x:Name="lblCompanyName" HorizontalOptions="CenterAndExpand"
+                       TextColor="White" FontSize="Medium" VerticalTextAlignment="Center"/>
+            </StackLayout>
+
+            <StackLayout VerticalOptions="StartAndExpand" 
+                HorizontalOptions="FillAndExpand" Margin="0">
+                
+                <!--UserName-->
+                <cc:CustomEntry x:Name="username" Placeholder="{Binding UsernamePlaceholder}"
+                                HorizontalOptions="FillAndExpand" PlaceholderColor="White" TextColor="White"
+                                >
+                    <cc:CustomEntry.Behaviors>
+                        <behaviors:EntryShakeBehavior Shake="{Binding ShakeUsernameCommand}"/>
+                    </cc:CustomEntry.Behaviors>
+                </cc:CustomEntry>
+                <StackLayout Style="{StaticResource WhiteLabelLineStyle}" Margin="0,0,0,30"/>
+           
+                <!--Password-->
+                <cc:CustomEntry Placeholder="{Binding PassworPlaceholder}" x:Name="password" IsPassword="True" 
+                                HorizontalOptions="FillAndExpand" PlaceholderColor="White" TextColor="White"
+                                >
+                    <cc:CustomEntry.Behaviors>
+                        <behaviors:EntryShakeBehavior Shake="{Binding ShakePasswordCommand}"/>
+                    </cc:CustomEntry.Behaviors>
+                </cc:CustomEntry>
+                <StackLayout Style="{StaticResource WhiteLabelLineStyle}" Margin="0"/>
+            
+            <!--Login Click-->
+                <cc:CustomStackLayout BackgroundColor="White" Margin="0,40,0,0" 
+                                      Padding="100,10" CornerRadius="20"
+                         HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
+                <cc:CustomStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Login_Tapped"/>
+                </cc:CustomStackLayout.GestureRecognizers>
+                <cc:CustomStackLayout.Behaviors>
+                    <behaviors:ViewTappedButtonBehavior Command="{Binding OnLoginCommand}"
+                                                        AnimationType="Scale"/>
+                </cc:CustomStackLayout.Behaviors>
+                <Label Text="Login" FontSize="Medium" TextColor="{StaticResource theme_primary}" 
+                       HorizontalTextAlignment="Center"/>
+            </cc:CustomStackLayout>
+                
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

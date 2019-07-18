@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WhiteLabelApp.App">
+    
+    <Application.Resources>
+        
+        <ResourceDictionary>
+
+            <Color x:Key="theme_primary">#a9c6c9</Color>
+
+
+            <Style x:Key="WhiteLabelLineStyle" TargetType="StackLayout">
+                <Setter Property="HeightRequest" Value="1" />
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            </Style>
+        </ResourceDictionary>
+        
+    </Application.Resources>
+</Application>

@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:svg="clr-namespace:SkiaRate;assembly=SkiaRate.Forms"
+             xmlns:svgPath="clr-namespace:WhiteLabelApp.Helpers"
+             x:Class="WhiteLabelApp.Pages.DashboardPage"
+             Title="Dashboard"
+             >
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="SVGImageStyle" TargetType="svg:RatingView">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="Count" Value="1" />
+                <Setter Property="OutlineOnColor" Value="{StaticResource theme_primary}"/>
+                <Setter Property="OutlineOffColor" Value="{StaticResource theme_primary}"/>
+                <Setter Property="ColorOn" Value="Transparent"/>
+            </Style>
+
+            <Style x:Key="ImageContainer" TargetType="StackLayout">
+                <Setter Property="HeightRequest" >
+                    <OnIdiom x:TypeArguments="x:Double">
+                        <OnIdiom.Phone>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android">150</On>
+                                <On Platform="iOS">115</On>
+                            </OnPlatform>
+                        </OnIdiom.Phone>
+                        <OnIdiom.Tablet>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android">170</On>
+                                <On Platform="iOS">150</On>
+                            </OnPlatform>
+                        </OnIdiom.Tablet>
+                    </OnIdiom>
+                </Setter>
+                <Setter Property="WidthRequest" >
+                    <OnIdiom x:TypeArguments="x:Double">
+                        <OnIdiom.Phone>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android">100</On>
+                                <On Platform="iOS">115</On>
+                            </OnPlatform>
+                        </OnIdiom.Phone>
+                        <OnIdiom.Tablet>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android">170</On>
+                                <On Platform="iOS">150</On>
+                            </OnPlatform>
+                        </OnIdiom.Tablet>
+                    </OnIdiom>
+                </Setter>
+                <Setter Property="Orientation" Value="Vertical" />
+                <!--<Setter Property="BackgroundColor" Value="LightGray" />-->
+                <Setter Property="IsEnabled" Value="True" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+
+        <Grid HorizontalOptions="FillAndExpand"
+              VerticalOptions="Center" >
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+
+            <Grid.RowSpacing>
+                <OnIdiom x:TypeArguments="x:Double">
+                    <OnIdiom.Phone>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="Android">50</On>
+                            <On Platform="iOS">44</On>
+                        </OnPlatform>
+                    </OnIdiom.Phone>
+                    <OnIdiom.Tablet>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="Android">70</On>
+                            <On Platform="iOS">60</On>
+                        </OnPlatform>
+                    </OnIdiom.Tablet>
+                </OnIdiom>
+            </Grid.RowSpacing>
+
+            <Grid.ColumnSpacing>
+                <OnIdiom x:TypeArguments="x:Double">
+                    <OnIdiom.Phone>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="Android">50</On>
+                            <On Platform="iOS">44</On>
+                        </OnPlatform>
+                    </OnIdiom.Phone>
+                    <OnIdiom.Tablet>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="Android">70</On>
+                            <On Platform="iOS">60</On>
+                        </OnPlatform>
+                    </OnIdiom.Tablet>
+                </OnIdiom>
+            </Grid.ColumnSpacing>
+
+            <StackLayout HorizontalOptions="EndAndExpand"
+                         VerticalOptions="End"
+                         Orientation="Vertical"
+                         Grid.Row="0"
+                         Grid.Column="0" >
+
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Android_Tapped" />
+                </StackLayout.GestureRecognizers>
+
+                <Label HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="End"
+                       Text="Android"
+                       TextColor="{StaticResource theme_primary}"
+                       Grid.Row="0"
+                       Grid.Column="0"/>
+
+                <StackLayout HorizontalOptions="EndAndExpand"
+                             VerticalOptions="FillAndExpand"
+                             Style="{StaticResource ImageContainer}"
+                             Spacing="0">
+                    <svg:RatingView Style="{StaticResource SVGImageStyle}"
+                                StrokeWidth="0.5"
+                                ColorOn="{StaticResource theme_primary}"
+                                IsEnabled="False"
+                                Path="{x:Static svgPath:SvgPaths.andriod}" />
+                </StackLayout>
+
+            </StackLayout>
+            
+            <!--Android - Image (0,0)-->
+            <!--<StackLayout HorizontalOptions="End"
+                         VerticalOptions="End"
+                         Style="{StaticResource ImageContainer}"
+                         Grid.Row="0"
+                         Grid.Column="0">
+
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Android_Tapped" />
+                </StackLayout.GestureRecognizers>
+                
+                <Label HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="End"
+                       Text="Android"
+                       Grid.Row="0"
+                       Grid.Column="0"/>
+                
+                <StackLayout HorizontalOptions="EndAndExpand"
+                             VerticalOptions="FillAndExpand"
+                             Style="{StaticResource ImageContainer}"
+                             Spacing="0">
+                <svg:RatingView Style="{StaticResource SVGImageStyle}"
+                                StrokeWidth="0.5"
+                                OutlineOnColor="{StaticResource theme_primary}"
+                                Path="{x:Static svgPath:SvgPaths.andriod}" />
+                </StackLayout>
+
+            </StackLayout>-->
+
+            <!--iOS - Image (0,1)-->
+            <StackLayout HorizontalOptions="StartAndExpand"
+                         VerticalOptions="End"
+                         Grid.Row="0"
+                         Grid.Column="1">
+
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="iOS_Tapped" />
+                </StackLayout.GestureRecognizers>
+                
+                <Label HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="Start"
+                       Text="iOS"
+                       TextColor="{StaticResource theme_primary}"
+                       Grid.Row="0"
+                       Grid.Column="1"/>
+                
+                <StackLayout HorizontalOptions="EndAndExpand"
+                             VerticalOptions="FillAndExpand"
+                             Style="{StaticResource ImageContainer}"
+                             Spacing="0">
+                    <svg:RatingView Style="{StaticResource SVGImageStyle}"
+                                StrokeWidth="9"
+                                OutlineOnColor="{StaticResource theme_primary}"
+                                    IsEnabled="False"
+                                Path="{x:Static svgPath:SvgPaths.ios}" />
+                </StackLayout>
+            </StackLayout>
+
+            <!--Xamarin - Image (1,0)-->
+            <StackLayout HorizontalOptions="EndAndExpand"
+                         VerticalOptions="End"
+                         Style="{StaticResource ImageContainer}"
+                         Grid.Row="1"
+                         Grid.Column="0">
+
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Xamarin_Tapped" />
+                </StackLayout.GestureRecognizers>
+
+                <Label HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="Start"
+                       Text="Xamarin"
+                       TextColor="{StaticResource theme_primary}"/>
+
+                <StackLayout HorizontalOptions="EndAndExpand"
+                             VerticalOptions="FillAndExpand"
+                             Style="{StaticResource ImageContainer}"
+                             Spacing="0">
+                    <svg:RatingView Style="{StaticResource SVGImageStyle}"
+                                StrokeWidth="9"
+                                OutlineOnColor="{StaticResource theme_primary}"
+                                    IsEnabled="False"
+                                Path="{x:Static svgPath:SvgPaths.xamarin}" />
+                </StackLayout>
+            </StackLayout>
+
+            <!--Flutter - Image (1,1)-->
+            <StackLayout HorizontalOptions="StartAndExpand"
+                         VerticalOptions="StartAndExpand"
+                         Style="{StaticResource ImageContainer}"
+                         Grid.Row="1"
+                         Grid.Column="1">
+
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Flutter_Tapped" />
+                </StackLayout.GestureRecognizers>
+
+                <Label HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="Start"
+                       Text="Flutter"
+                       TextColor="{StaticResource theme_primary}"
+                       Grid.Row="1"
+                       Grid.Column="1"/>
+                
+                <StackLayout HorizontalOptions="StartAndExpand"
+                             VerticalOptions="StartAndExpand"
+                             Style="{StaticResource ImageContainer}"
+                             Spacing="0">
+                <svg:RatingView Style="{StaticResource SVGImageStyle}"
+                                StrokeWidth="9"
+                                OutlineOnColor="{StaticResource theme_primary}"
+                                    IsEnabled="False"
+                                Path="{x:Static svgPath:SvgPaths.flutter}" />
+                </StackLayout>
+            </StackLayout>
+            
+        </Grid>
+        
+    </ContentPage.Content>
+</ContentPage>
